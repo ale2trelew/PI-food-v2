@@ -14,11 +14,12 @@ const getAllRecipes = async () => {
             score: result.healthScore,
             recipe: result.analyzedInstructions[0]?.steps.map(each => {
                 return each.step
-            }),
+            }).join(' --- '),
             image: result.image,
             diets: result.diets.map(each => ({ name: each })),
         }
     })
+    // console.log("CARGUE LAS RECETAS DE LA API BIEN");
     return recipeData;
 }
 
@@ -40,3 +41,46 @@ const fillDietsDB = async function () {
         console.log(err.message);
     }
 }
+
+const createFromApi = async function () {
+    try {
+        const recipesInDb = await Recipe.findAll({ where: { createdInDb: true } });
+
+        const count = await Recipe.count();
+
+        if (recipesInDb.length === count) {
+            const apiRecipes = await getAllRecipes();
+            for (let i = 0; i < apiRecipes.length; i++) {
+                let newRecipe = await Recipe.create({
+                    idApiSpook: apiRecipes[i].id,
+                    name: apiRecipes[i].name,
+                    description: apiRecipes[i].description,
+                    score: apiRecipes[i].score,
+                    recipe: apiRecipes[i].recipe,
+                    image: apiRecipes[i].image,
+                });
+                console.log("HICE UNA RECETA DE LO QUE CARGUE DE LA API");
+                if (apiRecipes[i].diets.length > 0) {
+                    let dietDb = await Diet.findAll({ where: { name: apiRecipes[i].diets[0].name }});
+                    newRecipe.addDiet(dietDb);
+                    for (let j = 1; j < apiRecipes[i].diets.length; j++) {
+                        let dietDb2 = await Diet.findAll({ where: {
+                            name: apiRecipes[i].diets[j].name
+                        } });
+                        newRecipe.addDiet(dietDb2);
+                    }
+                }
+            }
+        }
+        console.log("Recetas cargadas... ", await Recipe.count());
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+const loadDb = async function () {
+    await fillDietsDB();
+    await createFromApi();
+}
+
+module.exports = { loadDb }
