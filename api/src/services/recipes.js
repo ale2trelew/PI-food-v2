@@ -2,6 +2,7 @@ const { Recipe, Diet } = require('../db');
 const { API_KEY } = process.env;
 const axios = require('axios');
 
+
 const getAllRecipes = async () => {
     //esta variable toma las primeras 100 recetas traidas con el endpoint con su informacion extendida
     const recipesApi = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
@@ -59,7 +60,6 @@ const createFromApi = async function () {
                     recipe: apiRecipes[i].recipe,
                     image: apiRecipes[i].image,
                 });
-                console.log("HICE UNA RECETA DE LO QUE CARGUE DE LA API");
                 if (apiRecipes[i].diets.length > 0) {
                     let dietDb = await Diet.findAll({ where: { name: apiRecipes[i].diets[0].name }});
                     newRecipe.addDiet(dietDb);
@@ -83,4 +83,45 @@ const loadDb = async function () {
     await createFromApi();
 }
 
-module.exports = { loadDb }
+const filters = async (dietFilter, orderBy) => {
+    try {
+        console.log(dietFilter.toUpperCase());
+        var filterDiet = await Recipe.findAll({
+            include: {
+                model: Diet,
+                where: { "name": dietFilter },
+                attributes: ["name"]
+            },
+        });
+        if (filterDiet.length) {
+            if (orderBy) {
+                console.log(setOrder(filterDiet, orderBy));
+                return setOrder(filterDiet, orderBy);
+            };
+            return filterDiet;
+        }
+    } catch (err) {
+        console.log(err.message);
+        throw new Error({ msg: err.message })
+    }
+}
+
+const setOrder = (recipe, by) => {
+    switch (by) {
+        case "nameUp": {
+            return recipe.sort((a, b) => a.name.localeCompare(b.name));
+        };
+        case "nameDown": {
+            return recipe.sort((a, b) => b.name.localeCompare(a.name));
+        };
+        case "scoreUp": {
+            return recipe.sort((a, b) => b.score - a.score);
+        };
+        case "scoreDown": {
+            return recipe.sort((a, b) => a.score - b.score);
+        };
+        default: return recipe;
+    }
+}
+
+module.exports = { loadDb, setOrder, filters };
