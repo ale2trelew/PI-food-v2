@@ -11,7 +11,7 @@ const getAllRecipes = async () => {
         return {
             id: result.id,
             name: result.title,
-            description: result.summary,
+            description: result.summary.replace( /(<([^>]+)>)/ig, ''),
             score: result.healthScore,
             recipe: result.analyzedInstructions[0]?.steps.map(each => {
                 return each.step
