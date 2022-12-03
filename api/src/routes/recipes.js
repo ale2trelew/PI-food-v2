@@ -75,6 +75,7 @@ router.post('/create', async (req, res) => {
             description: req.body.description,
             score: req.body.score,
             recipe: req.body.recipe,
+            createdInDb: true,
             image: image ? image : "https://media0.giphy.com/media/9rKP9GqzIpGkjxFPKL/giphy.mp4"
         });
         for (let i = 0; i < arrDiet.length; i++) {
@@ -85,3 +86,49 @@ router.post('/create', async (req, res) => {
         console.log(err);
     }
 })
+
+router.get('/:id', async (req,res) => {
+    try {
+        let { id } = req.params;
+        if (typeof id === "string") {
+            // console.log("ENTRE AL IF DE STRING");
+            var encontrado = await Recipe.findOne({
+                where: { idApiSpook: parseInt(id) },
+                include: {
+                    model: Diet,
+                    attributes: ['name'],
+                    through: { attributes: [], }
+                }
+            });
+        // } else if (id.length > 23) {
+        //     console.log("ENTRE AL IF DE LENGTH > 1");
+        //     var encontrado = await Recipe.findOne({
+        //         where: { id: id },
+        //         include: {
+        //             model: Diet,
+        //             attributes: ['name'],
+        //             through: { attributes: [], }
+        //         }
+        //     });
+        } 
+        if (encontrado === null) {
+            // console.log("ENTRE AL IF DE NO HAY ID");
+            return res.status(400).json({ info: `No existe receta con el id `, encontrado});
+        }
+        res.send(encontrado);
+    } catch (err) {
+        console.log(err.message);
+        res.send({ msg: err.msg })
+    }
+})
+
+router.get('/dietas', async (req, res) => {
+    try {
+        const diets = await Diet.findAll();
+        res.status(200).send(diets);    
+    } catch (err) {
+        console.log(err.message);
+    }
+})
+
+module.exports = router;
