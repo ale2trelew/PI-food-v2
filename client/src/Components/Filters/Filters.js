@@ -3,10 +3,10 @@ import { fetchRecipes, filterRecipes } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import "./styles.css"
-import SearchBar from "../SearchBar/SearchBar";
+// import SearchBar from "../SearchBar/SearchBar";
 
 export default function Filters({ createdFilter, dietsFilter }) {
-    const allTypes = useSelector((state) => state.diets);
+    const allDiets = useSelector((state) => state.diets);
     const dispatch = useDispatch();
     // esto puede ser typeFilter, cambiar si no funciona
     const [filter, setFilter] = useState({
@@ -26,34 +26,34 @@ export default function Filters({ createdFilter, dietsFilter }) {
     function handleFilters(event) {
         event.preventDefault(); //POR SI RENDERIZA LENTO
         switch (event.target?.value) {
-            case 'nameUp': {
+            case 'nameUp':
                 setFilter({
                     ...filter,
                     order: 'nameUp'
                 })
                 break;
-            };
-            case 'nameDown': {
+            ;
+            case 'nameDown':
                 setFilter({
                     ...filter,
                     order: 'nameDown'
                 })
                 break;
-            };
-            case 'scoreUp': {
+            ;
+            case 'scoreUp':
                 setFilter({
                     ...filter,
                     order: 'scoreUp'
                 })
                 break;
-            };
-            case 'scoreDown': {
+            ;
+            case 'scoreDown':
                 setFilter({
                     ...filter,
                     order: 'scoreDown'
                 })
                 break;
-            };
+            ;
             default: {
                 setFilter({
                     ...filter,
@@ -114,7 +114,7 @@ export default function Filters({ createdFilter, dietsFilter }) {
                         Limpiar filtros
                     </button>
                 </div>
-                <SearchBar />
+                {/* <SearchBar /> */}
             </div>
         </div>
     )

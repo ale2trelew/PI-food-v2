@@ -8,19 +8,19 @@ const initialState = {
 
 function reducer(state = initialState, { type, payload }) {
     switch (type) {
-        case "GET_RECIPES": {
+        case "GET_RECIPES":
             return {
                 ...state,
                 recipes: payload,
                 allRecipes: payload
             }
-        };
-        case "GET_DIETS": {
+        ;
+        case "GET_DIETS":
             return {
                 ...state,
                 diets: payload
             }
-        };
+        ;
         case 'FILTER_BY_DIET':
             const allRec = state.allRecipes;
             const dietFiltered = payload === "todos" ? allRec : allRec.filter(pt => pt.diets.map(pt => pt.name).includes(payload))
@@ -40,36 +40,35 @@ function reducer(state = initialState, { type, payload }) {
                 recipes: filterByCreated
             }
         };
-        case "FILTERS": {
+        case "FILTERS":
             return {
                 ...state,
                 recipes: payload
             }
-        };
-        case "ORDER": {
+        ;
+        case "ORDER":
             return {
                 ...state,
                 recipes: payload
             }
-        };
-        case "GET_DETAILS": {
+        ;
+        case "GET_DETAILS":
             return {
                 ...state,
                 details: payload
             }
-        };
-        case "FIND_BY_NAME": {
+        ;
+        case "FIND_BY_NAME":
             return {
                 ...state,
                 recipes: payload
             }
-        };
-        
-        case "CREATE_recipe": {
+        ;
+        case "CREATE_RECIPE":
             return {
                 ...state
             }
-        };
+        ;
         default:
             return state;
     }

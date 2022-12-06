@@ -14,9 +14,9 @@ export default function Card({ id, name, score, image, diets }) {
                     <img src={image} alt={`${name}`} className="image" />
                 </Link>
             </div>
-            <div className="diets">
+            {/* <div className="diets">
                 {diets}
-            </div>
+            </div> */}
         </div>
     );
 }

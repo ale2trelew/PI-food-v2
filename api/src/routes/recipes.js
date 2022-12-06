@@ -90,16 +90,36 @@ router.post('/create', async (req, res) => {
 router.get('/:id', async (req,res) => {
     try {
         let { id } = req.params;
-        if (typeof id === "string") {
-            // console.log("ENTRE AL IF DE STRING");
+        if (id.length > 12) {
+            console.log("ENTRE AL IF largo mayor a 12");
+            var encontrado = await Recipe.findByPk(id, {
+                include: {
+                    model: Diet,
+                    attributes: ['name'],
+                    through: { attributes: [] }
+                }
+            });
+        } else if (typeof id === "string") {
+            // console.log("ENTRE AL IF DE LENGTH > 1");
             var encontrado = await Recipe.findOne({
                 where: { idApiSpook: parseInt(id) },
                 include: {
                     model: Diet,
                     attributes: ['name'],
-                    through: { attributes: [], }
+                    through: { attributes: [] }
                 }
             });
+        } 
+        // if (typeof id === "string") {
+        //     // console.log("ENTRE AL IF DE STRING");
+        //     var encontrado = await Recipe.findOne({
+        //         where: { idApiSpook: parseInt(id) },
+        //         include: {
+        //             model: Diet,
+        //             attributes: ['name'],
+        //             through: { attributes: [], }
+        //         }
+        //     });
         // } else if (id.length > 23) {
         //     console.log("ENTRE AL IF DE LENGTH > 1");
         //     var encontrado = await Recipe.findOne({
@@ -110,7 +130,7 @@ router.get('/:id', async (req,res) => {
         //             through: { attributes: [], }
         //         }
         //     });
-        } 
+        // } 
         if (encontrado === null) {
             // console.log("ENTRE AL IF DE NO HAY ID");
             return res.status(400).json({ info: `No existe receta con el id `, encontrado});

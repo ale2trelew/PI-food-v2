@@ -4,6 +4,7 @@ export function fetchRecipes() {
     return async function (dispatch) {
         try {
             const fetchedRecipes = await axios(`http://localhost:3001/recetas`);
+            // console.log("AQUI ESTA FETCHEDRECIPES... ", fetchedRecipes.data);
             return dispatch({
                 type: "GET_RECIPES",
                 payload: fetchedRecipes.data

@@ -52,6 +52,7 @@ export default function Home() {
             />
 
             <div className="recipePosition">
+                {console.log("ESTAS SON LAS CURRENT RECIPES--------", currentRecipes)}
                 {currentRecipes.length ? currentRecipes?.map((e, i) => {
                     
                     return (
