@@ -1,0 +1,28 @@
+.filters {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.diet-container {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.order-container {
+    margin-bottom: 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.selector {
+    display: flex;
+
+}
