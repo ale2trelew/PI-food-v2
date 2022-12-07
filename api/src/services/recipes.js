@@ -15,7 +15,7 @@ const getAllRecipes = async () => {
             score: result.healthScore,
             recipe: result.analyzedInstructions[0]?.steps.map(each => {
                 return each.step
-            }).join(' --- '),
+            }),
             image: result.image,
             diets: result.diets.map(each => ({ name: each })),
         }

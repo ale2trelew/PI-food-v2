@@ -23,7 +23,7 @@ function reducer(state = initialState, { type, payload }) {
         ;
         case 'FILTER_BY_DIET':
             const allRec = state.allRecipes;
-            const dietFiltered = payload === "todos" ? allRec : allRec.filter(pt => pt.diets.map(pt => pt.name).includes(payload))
+            const dietFiltered = payload === "todas" ? allRec : allRec.filter(pt => pt.diets.map(pt => pt.name).includes(payload))
             console.log(dietFiltered, "soy el filter_by_diet");
             return {
                 ...state,

@@ -19,16 +19,14 @@ router.get('/', async (req,res) => {
         }
 
         if (name && name !== '') {
-            const receta = await Recipe.findAll({
-                where: {
-                    name: name
-                },
+            const recetas = await Recipe.findAll({
                 include: {
                     model: Diet,
                     attributes: ['name'],
                     through: { attributes: [], }
                 }
             })
+            const receta = recetas.filter(obj => obj.name.toLowerCase().includes(name.toLowerCase()));
             if (receta?.length) return res.status(200).send(receta);
             else return res.status(404).send(`La receta "${name}" no existe.`);
         }

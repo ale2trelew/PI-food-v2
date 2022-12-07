@@ -1,0 +1,160 @@
+.recipecreate{
+    /* background-image: url('../../components/multimedia/pexels-lukas-349609.jpg'); */
+    background-size: cover;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.homebtncr{
+    position: absolute;
+    left: 50px;
+    top: 30px;
+    padding: 5px 10px;
+    border: 1px solid rgb(9, 126, 9);
+    border-radius: 5px;
+    background-color: rgba(11, 6, 6, 0.64);
+}
+
+.createcontainer{
+    display: flex;
+    width: 80%;
+    gap: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.form{
+    width: 50%;
+    background-color: rgba(11, 6, 6, 0.64);
+    backdrop-filter: 5px;
+    border-radius: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.preview{
+    width: 50%;
+    background-color: rgba(11, 6, 6, 0.64);
+    backdrop-filter: 5px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.formin{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: flex-start;
+    padding-left: 50px;
+}
+
+.errordisp{
+    font-size: 12px;
+    color: rgb(193, 75, 7);
+}
+
+.checks{
+    align-items: flex-start;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dietcheckcont{
+    width: 100%;
+    text-align: left;
+}
+
+.containerc {
+    display: block;
+    height: .8em;
+    width: .8em;
+    cursor: pointer;
+    position: relative;
+}
+  
+.containerc input {
+position: absolute;
+transform: scale(0);
+}
+
+.containerc input:checked ~ .checkmark {
+transform: rotate(45deg);
+height: .9em;
+width: .30em;
+border-color: #107910;
+border-top-color: transparent;
+border-left-color: transparent;
+border-radius: 0;
+}
+
+.containerc .checkmark {
+display: block;
+width: inherit;
+height: inherit;
+border: 2px solid #107910;
+border-radius: 4px;
+transition: all .3s;
+}
+
+.ccl{
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 10px;
+}
+
+.stepinput{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.tarea{
+    padding-left: 50px;
+}
+
+.btn2holder{
+    padding-left: 50px;
+}
+
+.btn2 {
+    padding: .7em 1.6em;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .btn2:hover {
+    background-color: #107910;
+    box-shadow: 0px 5px 20px rgba(46, 229, 58, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+  
+  .btn2:active {
+    transform: translateY(-1px);
+  }
+  .inputCreate {
+    position: absolute;
+  font-size: 15px;
+  height: 13px;
+  width: 400px;
+}

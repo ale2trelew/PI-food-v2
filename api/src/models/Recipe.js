@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
       validate: { min: 0, max: 100 }
     },
     recipe: {
-      type: DataTypes.TEXT,
+      type: DataTypes.ARRAY(DataTypes.JSON),
       allowNull: true,
     },
     image: {

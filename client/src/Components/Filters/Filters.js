@@ -3,7 +3,7 @@ import { fetchRecipes, filterRecipes } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import "./styles.css"
-// import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function Filters({ createdFilter, dietsFilter }) {
     const allDiets = useSelector((state) => state.diets);
@@ -114,7 +114,7 @@ export default function Filters({ createdFilter, dietsFilter }) {
                         Limpiar filtros
                     </button>
                 </div>
-                {/* <SearchBar /> */}
+                <SearchBar />
             </div>
         </div>
     )
