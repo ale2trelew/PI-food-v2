@@ -148,12 +148,13 @@ export default function Filters({ createdFilter, dietsFilter }) {
                         <option value="scoreDown">Health score mas bajo</option>
                     </select>
                 </div>
-                <div className="selector">
+                {/* <div className="selector">
                     <select onChange={(e) => { createdFilter(e) }} name="Createds">
+                        <option value="Cualquiera" hidden={true}>Ordenados por</option>
                         <option value="All">API</option>
                         <option value="Created">Creados</option>
                     </select>
-                </div>
+                </div> */}
                 <div className="reload-container">
                     <button className="realodButton" onClick={(e) => {handleClick(e)}}>
                         Limpiar filtros

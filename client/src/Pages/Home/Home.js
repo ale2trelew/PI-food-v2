@@ -35,12 +35,12 @@ export default function Home() {
         dispatch(filterByCreated(e.target.value))
     }
 
-    function handleDiets(e) {
-        e.preventDefault();
-        dispatch(filterRecipesByDiet(e.target.value));
-        setCurrentPage(1)
-        console.log(e.target.value, 'HANDLE DIETS');
-    }
+    // function handleDiets(e) {
+    //     e.preventDefault();
+    //     dispatch(filterRecipesByDiet(e.target.value));
+    //     setCurrentPage(1)
+    //     console.log(e.target.value, 'HANDLE DIETS');
+    // }
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 

@@ -26,8 +26,8 @@
 }
 
 .form{
-    width: 50%;
-    background-color: rgba(11, 6, 6, 0.64);
+    width: 100%;
+    background-color: rgba(130, 116, 66, 0.7);
     backdrop-filter: 5px;
     border-radius: 15px;
     padding-top: 20px;
@@ -36,7 +36,7 @@
 
 .preview{
     width: 50%;
-    background-color: rgba(11, 6, 6, 0.64);
+    background-color: rgba(130, 116, 66, 0.7);
     backdrop-filter: 5px;
     border-radius: 15px;
     display: flex;
@@ -56,13 +56,14 @@
 }
 
 .errordisp{
-    font-size: 12px;
-    color: rgb(193, 75, 7);
+    font-size: 22px;
+    color: rgb(207, 83, 83);
+    text-shadow: rgb(125, 123, 123) 5px 0 10px;
 }
 
 .checks{
     align-items: flex-start;
-    padding-left: 50px;
+    /* padding-left: 50px; */
     display: flex;
     flex-direction: column;
 }
@@ -89,7 +90,7 @@ transform: scale(0);
 transform: rotate(45deg);
 height: .9em;
 width: .30em;
-border-color: #107910;
+border-color: #699269;
 border-top-color: transparent;
 border-left-color: transparent;
 border-radius: 0;
@@ -99,7 +100,7 @@ border-radius: 0;
 display: block;
 width: inherit;
 height: inherit;
-border: 2px solid #107910;
+border: 2px solid #699269;
 border-radius: 4px;
 transition: all .3s;
 }
@@ -118,13 +119,13 @@ gap: 10px;
     gap: 5px;
 }
 
-.tarea{
+/* .tarea{
     padding-left: 50px;
-}
+} */
 
-.btn2holder{
+/* .btn2holder{
     padding-left: 50px;
-}
+} */
 
 .btn2 {
     padding: .7em 1.6em;
@@ -152,7 +153,35 @@ gap: 10px;
   .btn2:active {
     transform: translateY(-1px);
   }
-  .inputCreate {
+
+  .btn3 {
+    padding: .7em 1.6em;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .btn3:hover {
+    background-color: #107910;
+    box-shadow: 0px 5px 20px rgba(46, 229, 58, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+  
+  .btn3:active {
+    transform: translateY(-1px);
+  }
+  
+.inputCreate {
     position: absolute;
   font-size: 15px;
   height: 13px;

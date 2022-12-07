@@ -75,7 +75,7 @@ router.post('/create', async (req, res) => {
             score: req.body.score,
             recipe: req.body.recipe,
             createdInDb: true,
-            image: image ? image : "https://media0.giphy.com/media/9rKP9GqzIpGkjxFPKL/giphy.mp4"
+            image: image ? image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMD6F3T5ntRYJFkY8e48qogOas6j9YVqC_Gvcqqhfep_26sUU70gZSXV1H8orMl8KAIFU&usqp=CAU"
         });
         for (let i = 0; i < arrDiet.length; i++) {
             let dietDb = await Diet.findAll({ where: { name: arrDiet[i].name } })
@@ -117,8 +117,8 @@ router.get('/:id', async (req,res) => {
             // console.log("ENTRE AL IF DE NO HAY ID");
             return res.status(400).json({ info: `No existe receta con el id `, encontrado});
         }
-        console.log("LO ENCONTRE ", encontrado.diets);
-        res.json(encontrado);
+        console.log("LO ENCONTRE ", encontrado);
+        res.send(encontrado);
     } catch (err) {
         console.log(err.message);
         res.send({ msg: err.msg })

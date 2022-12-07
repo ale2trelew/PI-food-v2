@@ -7,12 +7,16 @@ export default function Card({ id, name, score, image, diets }) {
         <div className="card">
             <div className="tittle">
                 <p>{name}</p>
-                <p>Health score: {score}</p>
+                <p className="score">Puntuacion de salud: {score}</p>
             </div>
-            <h3>Dietas:</h3>
-                <div className="">
-                    {diets?.map(r => (<li className="">{r.name} </li>))}
-                </div>
+            <div className="diets">
+                <h3>Dietas:</h3>
+                    <div className="list">
+                        <p>
+                            {diets?.map(r => (<li className="">{r.name} </li>))}
+                        </p>
+                    </div>
+            </div>
             <div className="imgContainer">
                 <Link to={`/recetas/${id}`}>
                     <img src={image} alt={`${name}`} className="image" />

@@ -20,14 +20,14 @@ function validate(newrecipe) {
       errors.description = "Requiere una descripcion";
     }
     // if (newrecipe.score.toString().includes('e')){
-    if (!/^[0-100]+$/.test(newrecipe.score)){
-      errors.score = "El puntaje de salud no puede contener letras"
-    }
+    // if (!/(100)|[0-9]\d?/.test(newrecipe.score)){
+    //   errors.score = "El puntaje de salud no puede contener letras"
+    // }
     if (newrecipe.score > 100 || newrecipe.score < 0) {
       errors.score = "El puntaje de salud debe ser entre 0 y 100";
     }
     if (!newrecipe.score) {
-      errors.score = "Requiere puntaje de salud";
+      errors.score = "Requiere puntaje de salud valido";
     }
     if (newrecipe.recipe.length === 0) {
       errors.recipe = "Requiere al menos un paso para la preparacion";
@@ -146,7 +146,9 @@ function validate(newrecipe) {
           <form className="form" onSubmit={handleSubmit}>
             <div className="formin">
               <label>
-                Nombre:{" "}
+                <b>
+                  Nombre:{" "}
+                  </b>
                 <input
                   type="text"
                   name="name"
@@ -156,7 +158,9 @@ function validate(newrecipe) {
                 />
               </label>
               <label>
+                <b>
                 Imagen:{" "}
+                </b>
                 <input 
                 className="inputcreate"
                 type="text"
@@ -167,16 +171,25 @@ function validate(newrecipe) {
                 />
               </label>
               <label>
-                Descripcion:{" "}
+                <p>
+                  <b>
+                  Descripcion:{" "}
+                </b>
+                </p>
                 <textarea
                   name="description"
                   autoComplete="off"
                   value={newrecipe.description}
                   onChange={handleChange}
+                  rows="5" cols="80"
                 />
               </label>
               <label>
+              <p>
+                <b>
                 Puntaje de salud:{" "}
+                </b>
+                </p>
                 <input
                   type="number"
                   name="score"
@@ -187,24 +200,35 @@ function validate(newrecipe) {
               </label>
               <div className="stepinput">
                   <label>
-                  Receta:{" "}
-                  </label>
+                  <p>
+                  <b>
+                    Receta:{" "}
+                </b>
+                </p>
                   <div  className='tarea'>
                       <textarea
                           name="step"
                           autoComplete="off"
                           value={newrecipe.step}
                           onChange={handleChange}
-                      />
+                          rows="5" cols="80"
+                          />
                   </div>
+                  </label>
                   <div className="btn2holder">
                       <button type="button" className="btn2" onClick={handleClickAdd}>
-                          Agregar
+                          Agregar nuevo paso
                       </button>
                   </div>
               </div>
               <div className="dietcheckcont">
-                  <label>Dietas:</label>
+                  <label>
+                  <p>
+                  <b>
+                    Dietas:
+                </b>
+                </p>
+                    </label>
                   <div className="checks">
                       {diets.map((e) => {
                           return (
@@ -246,10 +270,12 @@ function validate(newrecipe) {
             <div>
               {error.diets? <label className="errordisp">--{error.diets}--</label> :newrecipe.diets+''}
             </div>
-            <div className="submitbtn">
-              <button type="button" disabled={Object.values(error).length} onClick={handleSubmit}>
+            <div className="btn2holder">
+              <Link to={`/recetas`}>
+              <button className="btn3" type="button" disabled={Object.values(error).length} onClick={handleSubmit}>
                 Cargar receta
               </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -9,11 +9,11 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #231E1F;
+    background-color: #5d5556;
     -webkit-box-shadow: 0px 0px 0px 10px rgba(33, 33, 33, 0.35);
     -moz-box-shadow: 0px 10px 10px 0px rgba(33, 33, 33, 0.35);
     box-shadow: 10px 10px 40px 10px rgba(33, 33, 33, 0.35);
-    background-image: url("../../Resources/icon-recetas.png");
+    /* background-image: url("../../Resources/icon-recetas.png"); */
   }
   
   .header .logo img {
@@ -56,9 +56,16 @@
   .btn{
     position: absolute;
     left: 50px;
-    top: 30px;
+    top: 20px;
     padding: 5px 10px;
     border: 1px solid rgb(9, 126, 9);
     border-radius: 5px;
-    background-color: rgba(11, 6, 6, 0.64);
-}
+    background-color: rgba(228, 224, 224, 0.64);
+  }
+
+  .btn:hover {
+    background-color: #107910;
+    box-shadow: 0px 5px 20px rgba(46, 229, 58, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }

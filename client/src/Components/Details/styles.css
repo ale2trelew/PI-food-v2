@@ -6,21 +6,31 @@
     border: rgba(0, 0, 0, 0.5) solid 1px;
     border-radius: 3%;
     background-color: rgb(60, 60, 60);
-    color: aliceblue;
+    color: rgb(240, 255, 250);
     opacity: 0.8;
     width: 80rem;
-    height: 50rem;
-    /* padding-top: 10rem; */
-}
-
-.button-container {
-    margin-bottom: 2rem;
-    display: flex;
-    width: 100%;
-    justify-content: center;
+    height: 40rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* background-image: url("../../Resources/icon-recetas.png"); */
 }
 
 .button-back {
+    padding: .7em 16em;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
     text-decoration: none;
     margin-bottom: 1rem;
     display: flex;
@@ -30,8 +40,20 @@
     font-weight: 500;
 }
 
+.button-container {
+    margin-bottom: 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+
 .button-container :hover {
     cursor: pointer;
+    background-color: #107910;
+    box-shadow: 0px 5px 20px rgba(46, 229, 58, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
 }
 
 .detail-diets {
