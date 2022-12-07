@@ -24,7 +24,6 @@ export default function Details(props) {
                     </div>
                     <br />
                     <div>
-                        {console.log("ESTO TIENE RECIPE EN DETAIL ", recipe)}
                         <img className="detail-image" src={recipe.image} alt={`${recipe.name}`} />
                     </div>
                 </div>
