@@ -29,7 +29,7 @@ export default function Details(props) {
                 </div>
                 <div className="detail-data">
                     <h1>{recipe.name}</h1>
-                    <p><h3>Health score: {recipe.score}</h3></p>
+                    <h3><p>Health score: {recipe.score}</p></h3>
                     <h3>Dietas:</h3>
                     <div className="diets">
                         {recipe.diets?.map(r => (<li className="">{r.name} </li>))}

@@ -142,9 +142,6 @@ function validate(newrecipe) {
   
     return (
       <div className="recipecreate">
-        {/* <div className="homebtncr">
-          <Link className='detailink' to={`/recetas`}>Home</Link>
-        </div> */}
         <div className="createcontainer">
           <form className="form" onSubmit={handleSubmit}>
             <div className="formin">

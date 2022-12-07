@@ -16,28 +16,32 @@
     /* background: linear-gradient(0deg, #00000088 30%,#ffffff44 100%, transparent);   */
   }
 
-  .landingPage h1{
-    color: white;
-    flex-direction: column;
-    font-family: Lato, Arial, Helvetica, sans-serif;
-    font-size: 80px;
-    text-align: center;  
-  }
-
-  .btn {
+  .btn_ing {
     background-color: transparent;
     flex-direction: column;
-    color: #fff;
-    font-size: 25px;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
     font-family: Lato, Arial, Helvetica, sans-serif;
     border-radius: 9999px;
     border: #fff solid 3px;
     padding: 25px;
     cursor: pointer;
     transition-duration: 0.4s;
-    margin-top: 1px;
-    margin-top: 40px;
-    
+    /* margin-top: 1px; */
+    margin-top: 35%;
+    /* margin-left: 20%; */
+    box-shadow: #2f2f2d 1px 0 10px;
+    text-shadow: #181817 2px 0 10px; 
+}
+
+.landingPage h1{
+  color: white;
+  flex-direction: column;
+  font-family: Lato, Arial, Helvetica, sans-serif;
+  font-size: 80px;
+  text-align: center;
+  margin-top: 10%;
+  text-shadow: #2f2f2d 2px 0 10px; 
 }
 
 .btn:hover {

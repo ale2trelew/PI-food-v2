@@ -11,7 +11,7 @@ export default function LandingPage() {
         <div className="landingPage">
             <h1>Bienvenidos</h1>
             <Link to="/recetas">
-                <button className="btn">Ingresar</button>
+                <button className="btn_ing">Ingresar</button>
             </Link>
         </div>
     );

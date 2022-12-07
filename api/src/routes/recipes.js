@@ -6,6 +6,7 @@ const { setOrder, filters } = require('../services/recipes');
 
 router.get('/', async (req,res) => {
     let { name, dietFilter, order, created } = req.query;
+    console.log("MIRA LO QUE HAY EN created ", created );
     try {
         if (created !== 'default' && created === true) {
             const createdInDb = await Recipe.findAll({
@@ -78,6 +79,9 @@ router.post('/create', async (req, res) => {
         });
         for (let i = 0; i < arrDiet.length; i++) {
             let dietDb = await Diet.findAll({ where: { name: arrDiet[i].name } })
+            if (dietDb) {
+                newRecipe.addDiet(dietDb)
+            }
         }
         res.status(201).send({ msg: "Receta creada exitosamente" });
     } catch (err) {
@@ -108,32 +112,13 @@ router.get('/:id', async (req,res) => {
                 }
             });
         } 
-        // if (typeof id === "string") {
-        //     // console.log("ENTRE AL IF DE STRING");
-        //     var encontrado = await Recipe.findOne({
-        //         where: { idApiSpook: parseInt(id) },
-        //         include: {
-        //             model: Diet,
-        //             attributes: ['name'],
-        //             through: { attributes: [], }
-        //         }
-        //     });
-        // } else if (id.length > 23) {
-        //     console.log("ENTRE AL IF DE LENGTH > 1");
-        //     var encontrado = await Recipe.findOne({
-        //         where: { id: id },
-        //         include: {
-        //             model: Diet,
-        //             attributes: ['name'],
-        //             through: { attributes: [], }
-        //         }
-        //     });
-        // } 
+        
         if (encontrado === null) {
             // console.log("ENTRE AL IF DE NO HAY ID");
             return res.status(400).json({ info: `No existe receta con el id `, encontrado});
         }
-        res.send(encontrado);
+        console.log("LO ENCONTRE ", encontrado.diets);
+        res.json(encontrado);
     } catch (err) {
         console.log(err.message);
         res.send({ msg: err.msg })

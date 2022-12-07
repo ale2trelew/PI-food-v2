@@ -7,6 +7,7 @@ import { fetchRecipes, fetchDiets, filterByCreated, filterRecipesByDiet } from "
 import Card from "../../Components/Card/card";
 import "./styles.css";
 import Filters from "../../Components/Filters/Filters";
+import { NavBar } from '../../Components/NavBar/NavBar';
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -45,14 +46,14 @@ export default function Home() {
 
     return (
         <div className="ContainerPrincipal">
-            
+            <NavBar />
             <Filters
                 createdFilter={handleFilterCreatedInDb}
-                dietsFilter={handleDiets}
+                // dietsFilter={handleDiets}
             />
 
             <div className="recipePosition">
-                {console.log("ESTAS SON LAS CURRENT RECIPES--------", currentRecipes)}
+                {/* {console.log("ESTAS SON LAS CURRENT RECIPES--------", currentRecipes)} */}
                 {currentRecipes.length ? currentRecipes?.map((e, i) => {
                     
                     return (

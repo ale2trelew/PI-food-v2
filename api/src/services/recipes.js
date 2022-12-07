@@ -85,7 +85,7 @@ const loadDb = async function () {
 
 const filters = async (dietFilter, orderBy) => {
     try {
-        console.log(dietFilter.toUpperCase());
+        // console.log(dietFilter.toUpperCase());
         var filterDiet = await Recipe.findAll({
             include: {
                 model: Diet,
@@ -95,7 +95,7 @@ const filters = async (dietFilter, orderBy) => {
         });
         if (filterDiet.length) {
             if (orderBy) {
-                console.log(setOrder(filterDiet, orderBy));
+                // console.log(setOrder(filterDiet, orderBy));
                 return setOrder(filterDiet, orderBy);
             };
             return filterDiet;

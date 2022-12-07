@@ -80,7 +80,7 @@ export function filterByCreated(payload) {
 
 export function filterRecipes(payload) {
     return async function (dispatch) {
-        const filters = await axios.get(`http://localhost:3001/recetas?typeFilter=${payload.typeFilter}&order=${payload.order}`);
+        const filters = await axios.get(`http://localhost:3001/recetas?dietFilter=${payload.dietFilter}&order=${payload.order}`);
         return dispatch({
             type: "FILTERS",
             payload: filters.data
